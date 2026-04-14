@@ -76,6 +76,45 @@
             color: var(--tg-theme-link-color);
         }
 
+        .price-block {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--tg-theme-hint-color);
+        }
+
+        .description-box {
+            background: var(--tg-theme-secondary-bg-color);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .description-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .description-content.collapsed {
+            max-height: calc(1.5em * 5);
+        }
+
+        .description-content.expanded {
+            max-height: none;
+        }
+
         .feature-list {
             list-style: none;
             margin: 16px 0;
@@ -105,22 +144,20 @@
             border-left: 4px solid var(--tg-theme-link-color);
         }
 
-        .price-block {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            margin: 20px 0 16px;
+        .more-btn {
+            background: transparent;
+            border: none;
+            color: var(--tg-theme-link-color);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 0 0;
+            cursor: pointer;
+            display: inline-block;
+            width: auto;
         }
 
-        .price {
-            font-size: 28px;
-            font-weight: 800;
-        }
-
-        .price small {
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--tg-theme-hint-color);
+        .more-btn:active {
+            opacity: 0.7;
         }
 
         .btn {
@@ -237,40 +274,50 @@
                 <h1 class="product-title">АУГРАМ на iOS</h1>
                 <div class="product-subtitle">Teledark 12.6 iPA for iOS</div>
 
-                <div class="highlight">
-                    💙 Что важно сразу:<br>
-                    – НИКАКИХ входов в Apple ID<br>
-                    – НИКАКИХ рисков блокировки<br>
-                    – Установка через IPA файл - Безопасно и чисто
-                </div>
-
-                <ul class="feature-list">
-                    <li>Режим призрака (читаешь - тебя не видят)</li>
-                    <li>Сохранение удалённых сообщений</li>
-                    <li>Обход запрета на копирование</li>
-                    <li>Бесконечный просмотр сгорающих фото/видео/кружков</li>
-                    <li>Изменение настроек геолокации</li>
-                    <li>Запись звонков</li>
-                    <li>Конвертация видео в кружки и голосовые сообщения</li>
-                </ul>
-
-                <div class="highlight">
-                    🔥 Версия Telegram 12.6<br>
-                    – самый свежий дизайн<br>
-                    – стабильная работа<br>
-                    – без багов и урезаний<br>
-                    – Функции ИИ<br>
-                    – И прочие новейшие функции Telegram
-                </div>
-
-                <p style="margin: 16px 0;">
-                    ❗️Это единственный AUGRAMM на iPhone, где ВСЕ функции действительно работают, а не “на бумаге”.<br><br>
-                    Не ведитесь на мошенников которые предлагают зайти на их учетную запись Apple ID, или просят перевести деньги на карту❗️
-                </p>
-
                 <div class="price-block">
                     <span class="price" id="priceDisplay">790 <small>₽</small></span>
                     <span style="color: var(--tg-theme-hint-color);">мгновенная доставка</span>
+                </div>
+
+                <div class="description-box">
+                    <div id="descriptionContent" class="description-content collapsed">
+                        <div class="highlight">
+                            💙 Что важно сразу:<br>
+                            – НИКАКИХ входов в Apple ID<br>
+                            – НИКАКИХ рисков блокировки<br>
+                            – Установка через IPA файл - Безопасно и чисто
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>Режим призрака (читаешь - тебя не видят)</li>
+                            <li>Сохранение удалённых сообщений</li>
+                            <li>Обход запрета на копирование</li>
+                            <li>Бесконечный просмотр сгорающих фото/видео/кружков</li>
+                            <li>Изменение настроек геолокации</li>
+                            <li>Запись звонков</li>
+                            <li>Конвертация видео в кружки и голосовые сообщения</li>
+                        </ul>
+
+                        <div class="highlight">
+                            🔥 Версия Telegram 12.6<br>
+                            – самый свежий дизайн<br>
+                            – стабильная работа<br>
+                            – без багов и урезаний<br>
+                            – Функции ИИ<br>
+                            – И прочие новейшие функции Telegram
+                        </div>
+
+                        <p style="margin: 16px 0;">
+                            ❗️Это единственный AUGRAMM на iPhone, где ВСЕ функции действительно работают, а не “на бумаге”.<br><br>
+                            Не ведитесь на мошенников которые предлагают зайти на их учетную запись Apple ID, или просят перевести деньги на карту❗️
+                        </p>
+
+                        <p style="margin: 16px 0;">
+                            🏦 Покупка проходит через верифицированного Telegram-бота – быстро, безопасно, удобным способом оплаты, без лишних действий.<br><br>
+                            Если ты долго искал максимум контроля и возможностей в Telegram на iPhone — ты нашёл это, больше ни одна переписка не пропадет😇
+                        </p>
+                    </div>
+                    <button id="toggleDescriptionBtn" class="more-btn">ещё</button>
                 </div>
 
                 <button class="btn" id="buyBtn">Купить</button>
@@ -365,6 +412,8 @@
         const paymentCommentSpan = document.getElementById('paymentComment');
         const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
         const cancelPaymentBtn = document.getElementById('cancelPaymentBtn');
+        const descriptionContent = document.getElementById('descriptionContent');
+        const toggleDescriptionBtn = document.getElementById('toggleDescriptionBtn');
 
         const adminPasswordScreen = document.getElementById('adminPasswordScreen');
         const adminPanelContent = document.getElementById('adminPanelContent');
@@ -380,7 +429,7 @@
         const exitAdminBtn = document.getElementById('exitAdminBtn');
         const backToShopFromPass = document.getElementById('backToShopFromPass');
 
-        const ADMIN_PASSWORD = 'njknjknjk';
+        const ADMIN_PASSWORD = '123';
         let isAdminAuth = false;
 
         function updatePriceUI() {
@@ -415,6 +464,18 @@
         }
 
         window.addEventListener('hashchange', checkHash);
+
+        toggleDescriptionBtn.addEventListener('click', () => {
+            if (descriptionContent.classList.contains('collapsed')) {
+                descriptionContent.classList.remove('collapsed');
+                descriptionContent.classList.add('expanded');
+                toggleDescriptionBtn.textContent = 'скрыть';
+            } else {
+                descriptionContent.classList.add('collapsed');
+                descriptionContent.classList.remove('expanded');
+                toggleDescriptionBtn.textContent = 'ещё';
+            }
+        });
 
         buyBtn.addEventListener('click', () => {
             currentComment = generateRandomComment();
